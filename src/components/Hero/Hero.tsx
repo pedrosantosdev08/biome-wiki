@@ -9,7 +9,7 @@ export function Hero() {
         Enciclopédia Interativa <br />
         <span className="title-highlight">de Biomas</span>
       </h2>
-      
+
       <p className="hero-description">
         Explore a rica biodiversidade do Brasil através de uma jornada imersiva
         pelos seis biomas que definem nossa identidade natural.
@@ -30,6 +30,7 @@ export function Hero() {
             description={bioma.description}
             imageUrl={bioma.imageUrl}
             buttonText="explorar"
+            path={`/${bioma.id}`}
           />
         ))}
       </div>

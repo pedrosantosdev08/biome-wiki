@@ -9,6 +9,7 @@
   --text-green: #008B52;
 }
 
-body {
+body, html {
   background-color: var(--background-green);
+  scroll-behavior: smooth;
 }

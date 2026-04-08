@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom"; // 1. Importar o hook
 import "./BiomeCard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightLong } from "@fortawesome/free-solid-svg-icons";
@@ -8,13 +9,22 @@ interface BiomeCardProps {
     description: string;
     imageUrl?: string; 
     buttonText: string;
-    index: number; 
+    index: number;
+    path: string; // 2. Nova prop para o destino da rota
 }
 
-export function BiomeCard({ title, description, imageUrl, buttonText, index }: BiomeCardProps) {
+export function BiomeCard({ title, description, imageUrl, buttonText, index, path }: BiomeCardProps) {
+    const navigate = useNavigate(); // 3. Inicializar o hook
+
+    const handleNavigation = () => {
+        navigate(path); // 4. Função de navegação
+    };
+
     return (
         <motion.div 
             className="biome-card"
+            onClick={handleNavigation} 
+            style={{ cursor: 'pointer' }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -36,9 +46,18 @@ export function BiomeCard({ title, description, imageUrl, buttonText, index }: B
             <div className="biome-content">
                 <h3 className="biome-title">{title}</h3>
                 <p className="biome-description">{description}</p>
-                <button className="biome-button">{buttonText} <span className="right-arrow">
-                    <FontAwesomeIcon icon={faRightLong} />
-                </span></button>
+                <button 
+                    className="biome-button"
+                    onClick={(e) => {
+                        e.stopPropagation(); // Evita disparar o onClick do card pai duas vezes
+                        handleNavigation();
+                    }}
+                >
+                    {buttonText} 
+                    <span className="right-arrow">
+                        <FontAwesomeIcon icon={faRightLong} />
+                    </span>
+                </button>
             </div>
         </motion.div>
     );

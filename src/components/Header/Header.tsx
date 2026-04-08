@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Header.css";
+import { Link } from "react-router-dom";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -26,58 +27,58 @@ export function Header() {
       <nav>
         <ul className="nav-links">
           <li>
-            <a
+            <Link
               className="nav-item
                     "
-              href="#amazonia"
+              to="/amazonia"
             >
               Amazônia
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               className="nav-item
                     "
-              href="#pantanal"
+              to="/pantanal"
             >
               Pantanal
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               className="nav-item
                     "
-              href="#cerrado"
+              to="/cerrado"
             >
               Cerrado
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               className="nav-item
                     "
-              href="#mataatlantica"
+              to="/mataatlantica"
             >
               Mata Atlântica
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               className="nav-item
                     "
-              href="#caatinga"
+              to="/caatinga"
             >
               Caatinga
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               className="nav-item
                     "
-              href="#pampa"
+              to="/pampa"
             >
               Pampa
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
