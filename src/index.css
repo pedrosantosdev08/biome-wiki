@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background-green: #070D06;
+  --text-green: #008B52;
+}
+
+body {
+  background-color: var(--background-green);
+}
