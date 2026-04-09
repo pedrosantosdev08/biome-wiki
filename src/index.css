@@ -1,15 +1,21 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import "tailwindcss";
+
+
+@config "../tailwind.config.ts";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #070d06;
+  }
 }
 
-:root {
-  --background-green: #070D06;
-  --text-green: #008B52;
-}
-
-body, html {
-  background-color: var(--background-green);
-  scroll-behavior: smooth;
+@layer utilities {
+  .shadow-text-soft {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
 }

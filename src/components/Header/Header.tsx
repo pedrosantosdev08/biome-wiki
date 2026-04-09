@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "./Header.css";
 import { Link } from "react-router-dom";
 
 export function Header() {
@@ -7,7 +6,6 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      
       const isScrolled = window.scrollY > 50;
       if (isScrolled !== scrolled) {
         setScrolled(isScrolled);
@@ -15,71 +13,33 @@ export function Header() {
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    // Limpeza do evento ao desmontar o componente
     return () => window.removeEventListener("scroll", handleScroll);
   }, [scrolled]);
+
   return (
-    <header className={`header-container ${scrolled ? "scrolled" : ""}`}>
-      <h1 className="header-title">
-        Enciclopédia <span>de Biomas</span>
+    <header 
+      className={`fixed top-0 left-0 w-full h-[9vh] flex items-center justify-around px-8 z-1000 transition-all duration-300 border-b
+        ${scrolled 
+          ? "bg-[#0a1914]/80 backdrop-blur-md border-white/5 shadow-2xl" 
+          : "bg-background-green border-[#302518]/25"
+        }`}
+    >
+      <h1 className="text-[#F3F1E9] text-2xl font-sans">
+        Enciclopédia <span className="font-title italic">de Biomas</span>
       </h1>
+
       <nav>
-        <ul className="nav-links">
-          <li>
-            <Link
-              className="nav-item
-                    "
-              to="/amazonia"
-            >
-              Amazônia
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="nav-item
-                    "
-              to="/pantanal"
-            >
-              Pantanal
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="nav-item
-                    "
-              to="/cerrado"
-            >
-              Cerrado
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="nav-item
-                    "
-              to="/mataatlantica"
-            >
-              Mata Atlântica
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="nav-item
-                    "
-              to="/caatinga"
-            >
-              Caatinga
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="nav-item
-                    "
-              to="/pampa"
-            >
-              Pampa
-            </Link>
-          </li>
+        <ul className="flex gap-10 list-none">
+          {["Amazônia", "Pantanal", "Cerrado", "Mata Atlântica", "Caatinga", "Pampa"].map((name) => (
+            <li key={name}>
+              <Link
+                className="text-[#cccccc]/70 uppercase text-sm no-underline transition-colors duration-300 hover:text-highlight-green font-sans"
+                to={`/${name.toLowerCase().replace(" ", "")}`}
+              >
+                {name}
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>
