@@ -1,11 +1,11 @@
-import { Header } from "../../components/Header/Header";
-import { Hero } from "../../components/Hero/Hero";
+import { Hero } from "../../components/sections/HeroHome/Hero";
+import { Header } from "../../components/sections/Header/Header";
 
-export function Home(){
-    return (
-        <div className="home-container">
-            <Header/>
-            <Hero/>
-        </div>
-    )
+export function Home() {
+  return (
+    <>
+      <Header />
+      <Hero />
+    </>
+  );
 }

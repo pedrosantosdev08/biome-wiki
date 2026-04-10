@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -24,9 +25,13 @@ export function Header() {
           : "bg-background-green border-[#302518]/25"
         }`}
     >
-      <h1 className="text-[#F3F1E9] text-2xl font-sans">
-        Enciclopédia <span className="font-title italic">de Biomas</span>
-      </h1>
+      
+
+      <Link className="text-[#F3F1E9] text-2xl font-sans" to="/">
+      Enciclopédia <span className="font-title italic">de Biomas</span>
+      </Link>
+        
+      
 
       <nav>
         <ul className="flex gap-10 list-none">

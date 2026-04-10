@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom"; // 1. Importar o hook
+import { useNavigate } from "react-router-dom"; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightLong } from "@fortawesome/free-solid-svg-icons";
 
 interface BiomeCardProps {
   title: string;
   description: string;
-  imageUrl?: string;
+  biomaImage?: string;
   buttonText: string;
   index: number;
   path: string;
@@ -15,7 +15,7 @@ interface BiomeCardProps {
 export function BiomeCard({
   title,
   description,
-  imageUrl,
+  biomaImage,
   buttonText,
   index,
   path,
@@ -35,7 +35,7 @@ export function BiomeCard({
       <div className="absolute inset-0 z-1">
         <img
           src={
-            imageUrl ||
+            biomaImage ||
             "https://images.unsplash.com/photo-1518173946687-a4c8a9b746f5"
           }
           alt={title}

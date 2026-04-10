@@ -1,16 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import "tailwindcss";
 
-
+/* O @config deve vir logo após o import do tailwind */
 @config "../tailwind.config.ts";
+
+@theme {
+  --font-title: "Playfair Display", serif;
+  --text-title: clamp(50px, 10vw, 100px);
+
+  --color-background-green: #070D06;
+  --color-highlight-green: #008B52;
+  --color-card-bg: #1a1a1a;
+  --color-border-color: rgba(255, 255, 255, 0.1);
+
+  --tracking-title: -0.09rem;
+}
 
 @layer base {
   html {
     scroll-behavior: smooth;
   }
-
   body {
-    background-color: #070d06;
+    /* Usando a variável que você mesmo criou no @theme */
+    background-color: var(--color-background-green);
+    color: #F3F1E9;
+    font-family: sans-serif; /* Ou sua fonte de corpo */
   }
 }
 

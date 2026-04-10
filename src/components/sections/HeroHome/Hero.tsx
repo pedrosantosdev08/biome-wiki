@@ -1,23 +1,33 @@
-import { BiomeCard } from "../BiomeCard/BiomeCard";
-import { BIOMAS_BR } from "../../data/biomes";
+import { motion } from "framer-motion";
+import { BIOMAS_BR } from "../../../data/biomes";
+import { BiomeCard } from "../../ui/BiomeCard/BiomeCard";
 
 export function Hero() {
   return (
     <section className="flex flex-col items-center min-h-screen py-30 px-10 bg-background-green">
-      
       {/* Hero Title */}
-      <h2 className="text-[#F3F1E9] text-center text-[clamp(50px,10vw,100px)] mb-10 font-title leading-[1.05] font-bold">
+      <motion.h2
+        initial={{ y: 40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+        className="text-[#F3F1E9] text-center text-title my-10 font-title leading-[1.05] font-bold"
+      >
         Enciclopédia Interativa <br />
         <span className="text-highlight-green drop-shadow-[0_0_20px_rgba(0,139,82,0.2)]">
           de Biomas
         </span>
-      </h2>
+      </motion.h2>
 
       {/* Hero Description */}
-      <p className="text-[#cccccc]/70 text-center text-[clamp(1.1rem,2vw,1.5rem)] max-w-225 mb-15 leading-[1.7] font-light">
+      <motion.p
+        initial={{ y: 40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1.1, delay: 0.4, ease: "easeOut" }}
+        className="text-[#cccccc]/70 text-center text-[clamp(1.1rem,2vw,1.5rem)] max-w-225 mb-15 leading-[1.7] font-light"
+      >
         Explore a rica biodiversidade do Brasil através de uma jornada imersiva
         pelos seis biomas que definem nossa identidade natural.
-      </p>
+      </motion.p>
 
       {/* Hero CTA (Linhas e Texto) */}
       <div className="flex items-center justify-center my-15 mb-25 text-[#cccccc]/70 text-lg uppercase tracking-[6px] font-normal text-center">
@@ -34,7 +44,7 @@ export function Hero() {
             index={index}
             title={bioma.title}
             description={bioma.description}
-            imageUrl={bioma.imageUrl}
+            biomaImage={bioma.biomaImage}
             buttonText="explorar"
             path={`/${bioma.id}`}
           />
